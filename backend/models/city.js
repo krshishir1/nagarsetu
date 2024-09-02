@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 
 const locationSchema = require("./location")
 const adminSchema = require("./admin")
+const departmentSchema = require("./department")
 
 const citySchema = new mongoose.Schema({
     city_id: {
@@ -21,7 +22,11 @@ const citySchema = new mongoose.Schema({
         address: String
     },
     admin: adminSchema,
-    location: locationSchema
+    location: locationSchema,
+    departments: {
+        type: [departmentSchema],
+        default: undefined
+    }
 }, {
     timestamps: true
 })
