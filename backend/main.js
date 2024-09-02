@@ -1,4 +1,5 @@
 const express = require('express');
+const { default: mongoose } = require('mongoose');
 require('dotenv').config();
 
 const app = express();
@@ -10,7 +11,11 @@ app.get('/', (req, res) => {
     res.json({ message: "Nagar setu API is working" });
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`Server is running at http://localhost:${port}`);
+        });
+    })
+    .catch(err => console.log(err))
