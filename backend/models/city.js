@@ -22,7 +22,10 @@ const citySchema = new mongoose.Schema({
         address: String
     },
     admin: adminSchema,
-    location: locationSchema,
+    location: {
+        type: locationSchema,
+        default: undefined
+    },
     departments: {
         type: [departmentSchema],
         default: undefined

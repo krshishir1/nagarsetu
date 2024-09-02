@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { hashPassword } = require("../utils/passwordManagement");
 
 const adminSchema = new mongoose.Schema({
     username: {
@@ -15,5 +16,10 @@ const adminSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+adminSchema.pre('save', async function (next) {
+    this.password = await hashPassword(this.password);
+    next()
+})
 
 module.exports = adminSchema;
