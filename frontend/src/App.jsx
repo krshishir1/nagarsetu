@@ -1,15 +1,13 @@
-import { useState } from 'react'
+import React from 'react'
+import {Dashboard, Home} from './components/'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <h2>
-          Nagar Setu Project
-        </h2>
-      </div>
+      <Home/>
+      {/* <Dashboard/> */}
+
     </>
   )
 }

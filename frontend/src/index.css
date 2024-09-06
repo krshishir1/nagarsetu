@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    background-color:  #0a182f;
+}
+
+#main-container{
+    background: url(assets/images/header_back.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#main_txt > h1 > span{
+    background: linear-gradient(to right,#18A649 , #4C7BE1);
+    color: transparent;
+    background-clip: text;
+}
+
+#key_ftr > span{
+    background: linear-gradient(to right,#18A649 , #4C7BE1);
+    color: transparent;
+    background-clip: text;
+}
+
+
+#map{
+    background-color: red;
+    height: inherit;
+    width: inherit;
+}
